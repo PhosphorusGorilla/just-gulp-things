@@ -33,7 +33,7 @@ gulp.task('prepareAssetsForBuild', function() {
 		// Update /script/ --to--> script/
 		.replace(/(\<script src=")\/(script)/g, "$1$2")
 		// Update *.css --to--> *.css?ver=hash
-		.replace(/(\.css)/g, "$1?ver=" + git.short());
+		.replace(/(\.css)/g, "$1?v=" + git.short());
 
 	fs.writeFileSync('index.html', replacedContent);
 });
