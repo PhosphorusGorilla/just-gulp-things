@@ -32,8 +32,8 @@ gulp.task('prepareAssetsForBuild', function() {
 	var replacedContent = content
 		// Update /script/ --to--> script/
 		.replace(/(\<script src=")\/(script)/g, "$1$2")
-		// Update *.css --to--> *.css?ver=hash
-		.replace(/(\.css)/g, "$1?v=" + git.short());
+		// Update *.css --to--> *.css?v=ticks
+		.replace(/(\.css)/g, "$1?v=" + (new Date()).getTime());
 
 	fs.writeFileSync('index.html', replacedContent);
 });
